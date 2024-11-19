@@ -15,7 +15,9 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 
 RUN apt-get update && apt-get install -y docker-ce-cli
 
-RUN apt update && apt install tzdata -y && apt-get install jq
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install tzdata -y  \
+    jq \
+    awscli
 
 ENV TZ="Asia/Dhaka"
 
